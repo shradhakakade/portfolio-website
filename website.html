@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shradha Kakade | BCA Student Portfolio</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        /* =========================
+           GLOBAL STYLES
+        ========================== */
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            --orange: #ff7a00;
+            --orange-light: #ffb36b;
+            --blue: #1769e0;
+            --blue-dark: #0c3f91;
+            --pink: #ffe1ec;
+            --pink-dark: #ffb6cc;
+            --white: #ffffff;
+            --text: #172033;
+            --gray: #657084;
+            --light-blue: #eaf3ff;
+            --shadow: 0 15px 45px rgba(24, 62, 120, 0.12);
+        }
+
+        body {
+            font-family: "Poppins", sans-serif;
+            background: var(--white);
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            width: 90%;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title span {
+            color: var(--orange);
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 14px;
+        }
+
+        .section-title h2 {
+            font-size: 40px;
+            margin-top: 10px;
+            color: var(--blue-dark);
+        }
+
+        .section-title h2::after {
+            content: "";
+            display: block;
+            width: 70px;
+            height: 4px;
+            margin: 15px auto 0;
+            background: linear-gradient(90deg, var(--orange), var(--blue));
+            border-radius: 20px;
+        }
+
+        /* =========================
+           NAVBAR
+        ========================== */
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(12px);
+            box-shadow: 0 3px 20px rgba(0, 0, 0, 0.05);
+        }
+
+        nav {
+            height: 75px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: 800;
+            color: var(--blue);
+        }
+
+        .logo span {
+            color: var(--orange);
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            font-size: 14px;
+            font-weight: 500;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -7px;
+            width: 0;
+            height: 3px;
+            border-radius: 10px;
+            background: var(--orange);
+            transition: 0.3s;
+        }
+
+        .nav-links a:hover {
+            color: var(--orange);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        .menu-btn {
+            display: none;
+            font-size: 28px;
+            color: var(--blue);
+            cursor: pointer;
+        }
+
+        /* =========================
+           HERO
+        ========================== */
+
+        #home {
+            min-height: 100vh;
+            padding-top: 150px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+            background:
+                radial-gradient(circle at 10% 20%, #ffe8f0 0, transparent 25%),
+                radial-gradient(circle at 90% 70%, #e7f1ff 0, transparent 28%),
+                white;
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .hero-text {
+            animation: slideLeft 1s ease forwards;
+        }
+
+        .hello {
+            display: inline-block;
+            padding: 8px 18px;
+            border-radius: 30px;
+            background: var(--pink);
+            color: #d94e77;
+            font-weight: 600;
+            margin-bottom: 18px;
+        }
+
+        .hero h1 {
+            font-size: clamp(45px, 6vw, 75px);
+            line-height: 1.08;
+            color: var(--text);
+        }
+
+        .hero h1 span {
+            color: var(--blue);
+        }
+
+        .hero h2 {
+            margin: 18px 0;
+            font-size: 25px;
+            color: var(--orange);
+        }
+
+        .hero p {
+            max-width: 650px;
+            color: var(--gray);
+            line-height: 1.9;
+            font-size: 16px;
+        }
+
+        .buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 13px 25px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--orange);
+            color: white;
+            box-shadow: 0 10px 25px rgba(255, 122, 0, 0.3);
+        }
+
+        .btn-primary:hover {
+            background: var(--blue);
+            transform: translateY(-4px);
+        }
+
+        .btn-outline {
+            border: 2px solid var(--blue);
+            color: var(--blue);
+        }
+
+        .btn-outline:hover {
+            background: var(--blue);
+            color: white;
+            transform: translateY(-4px);
+        }
+
+        /* Profile circle */
+
+        .hero-image {
+            display: flex;
+            justify-content: center;
+            position: relative;
+            animation: slideRight 1s ease forwards;
+        }
+
+        .profile-circle {
+            width: 330px;
+            height: 330px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--pink), var(--light-blue));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            box-shadow: var(--shadow);
+            border: 12px solid white;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        .profile-circle::before {
+            content: "";
+            position: absolute;
+            inset: -20px;
+            border-radius: 50%;
+            border: 3px dashed var(--orange-light);
+            animation: rotate 15s linear infinite;
+        }
+
+        .profile-initial {
+            width: 220px;
+            height: 220px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--blue), #63a0ff);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 85px;
+            font-weight: 800;
+            box-shadow: 0 15px 40px rgba(23, 105, 224, 0.3);
+        }
+
+        /* Floating shapes */
+
+        .shape {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.6;
+            z-index: -1;
+        }
+
+        .shape.one {
+            width: 80px;
+            height: 80px;
+            background: var(--orange-light);
+            top: 15%;
+            left: 4%;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .shape.two {
+            width: 50px;
+            height: 50px;
+            background: var(--pink-dark);
+            right: 8%;
+            top: 20%;
+            animation: float 4s ease-in-out infinite reverse;
+        }
+
+        .shape.three {
+            width: 100px;
+            height: 100px;
+            background: #cfe1ff;
+            bottom: 10%;
+            right: 3%;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        /* =========================
+           ABOUT
+        ========================== */
+
+        #about {
+            background: #fff8fb;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+
+        .about-card {
+            background: white;
+            padding: 40px;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            border-left: 5px solid var(--orange);
+        }
+
+        .about-card h3 {
+            color: var(--blue-dark);
+            font-size: 28px;
+            margin-bottom: 18px;
+        }
+
+        .about-card p {
+            color: var(--gray);
+            line-height: 1.9;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .info-box {
+            background: white;
+            padding: 25px;
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+
+        .info-box:hover {
+            transform: translateY(-8px);
+        }
+
+        .info-box .icon {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .info-box h4 {
+            color: var(--blue);
+            margin-bottom: 5px;
+        }
+
+        .info-box p {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        /* =========================
+           EDUCATION
+        ========================== */
+
+        .timeline {
+            max-width: 850px;
+            margin: auto;
+            position: relative;
+        }
+
+        .timeline::before {
+            content: "";
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(var(--orange), var(--blue));
+            border-radius: 20px;
+        }
+
+        .timeline-item {
+            width: 50%;
+            padding: 15px 40px;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: var(--orange);
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px var(--orange-light);
+            border-radius: 50%;
+            top: 30px;
+            z-index: 2;
+        }
+
+        .timeline-item:nth-child(odd) .timeline-dot {
+            right: -10px;
+        }
+
+        .timeline-item:nth-child(even) .timeline-dot {
+            left: -10px;
+        }
+
+        .timeline-content {
+            padding: 25px;
+            background: white;
+            border-radius: 20px;
+            box-shadow: var(--shadow);
+            transition: 0.3s;
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-8px);
+        }
+
+        .timeline-content h3 {
+            color: var(--blue);
+            font-size: 19px;
+        }
+
+        .timeline-content .year {
+            color: var(--orange);
+            font-size: 13px;
+            font-weight: 600;
+            margin: 7px 0;
+        }
+
+        .timeline-content p {
+            color: var(--gray);
+            font-size: 14px;
+            line-height: 1.7;
+        }
+
+        /* =========================
+           ACHIEVEMENTS
+        ========================== */
+
+        #achievements {
+            background: var(--light-blue);
+        }
+
+        .achievement-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .achievement-card {
+            background: white;
+            padding: 35px 25px;
+            text-align: center;
+            border-radius: 25px;
+            box-shadow: var(--shadow);
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .achievement-card::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 5px;
+            top: 0;
+            left: 0;
+            background: linear-gradient(90deg, var(--orange), var(--blue));
+        }
+
+        .achievement-card:hover {
+            transform: translateY(-12px);
+        }
+
+        .achievement-icon {
+            width: 75px;
+            height: 75px;
+            margin: auto auto 20px;
+            background: var(--pink);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 35px;
+        }
+
+        .achievement-card h3 {
+            color: var(--blue-dark);
+            margin-bottom: 10px;
+        }
+
+        .achievement-card p {
+            color: var(--gray);
+            line-height: 1.7;
+            font-size: 14px;
+        }
+
+        /* =========================
+           HOBBIES
+        ========================== */
+
+        .hobby-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .hobby-card {
+            padding: 45px 25px;
+            border-radius: 25px;
+            text-align: center;
+            background: linear-gradient(145deg, white, #fff7fa);
+            box-shadow: var(--shadow);
+            transition: 0.4s;
+            border: 2px solid transparent;
+        }
+
+        .hobby-card:hover {
+            border-color: var(--pink-dark);
+            transform: scale(1.04) rotate(1deg);
+        }
+
+        .hobby-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .hobby-card h3 {
+            color: var(--blue);
+            margin-bottom: 8px;
+        }
+
+        .hobby-card p {
+            color: var(--gray);
+            font-size: 14px;
+        }
+
+        /* =========================
+           CERTIFICATE
+        ========================== */
+
+        .certificate {
+            max-width: 800px;
+            margin: auto;
+            padding: 45px;
+            background: linear-gradient(135deg, var(--blue), #3784ed);
+            color: white;
+            border-radius: 30px;
+            text-align: center;
+            box-shadow: 0 20px 50px rgba(23, 105, 224, 0.25);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .certificate::before,
+        .certificate::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+        }
+
+        .certificate::before {
+            width: 200px;
+            height: 200px;
+            top: -100px;
+            right: -70px;
+        }
+
+        .certificate::after {
+            width: 150px;
+            height: 150px;
+            bottom: -80px;
+            left: -60px;
+        }
+
+        .certificate .cert-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .certificate h3 {
+            font-size: 30px;
+            margin-bottom: 10px;
+        }
+
+        .certificate p {
+            opacity: 0.9;
+            line-height: 1.8;
+        }
+
+        /* =========================
+           CONTACT
+        ========================== */
+
+        #contact {
+            background: #fff8fb;
+        }
+
+        .contact-box {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 50px;
+            border-radius: 30px;
+            box-shadow: var(--shadow);
+            text-align: center;
+        }
+
+        .contact-box h3 {
+            font-size: 30px;
+            color: var(--blue-dark);
+            margin-bottom: 15px;
+        }
+
+        .contact-box p {
+            color: var(--gray);
+            line-height: 1.8;
+        }
+
+        .contact-items {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .contact-item {
+            padding: 12px 22px;
+            border-radius: 30px;
+            background: var(--pink);
+            color: #b94167;
+            font-weight: 500;
+        }
+
+        /* =========================
+           FOOTER
+        ========================== */
+
+        footer {
+            background: var(--blue-dark);
+            color: white;
+            text-align: center;
+            padding: 25px;
+        }
+
+        footer span {
+            color: var(--orange-light);
+        }
+
+        /* =========================
+           SCROLL REVEAL
+        ========================== */
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* =========================
+           ANIMATIONS
+        ========================== */
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        @keyframes rotate {
+            from {
+                transform: rotate(0);
+            }
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes slideLeft {
+            from {
+                opacity: 0;
+                transform: translateX(-50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        @keyframes slideRight {
+            from {
+                opacity: 0;
+                transform: translateX(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateX(0);
+            }
+        }
+
+        /* =========================
+           RESPONSIVE
+        ========================== */
+
+        @media (max-width: 900px) {
+
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero p {
+                margin: auto;
+            }
+
+            .buttons {
+                justify-content: center;
+            }
+
+            .hero-image {
+                order: -1;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .achievement-grid,
+            .hobby-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 700px) {
+
+            .menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: absolute;
+                top: 75px;
+                left: -100%;
+                width: 100%;
+                background: white;
+                flex-direction: column;
+                text-align: center;
+                padding: 25px;
+                gap: 20px;
+                transition: 0.4s;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+            }
+
+            .nav-links.active {
+                left: 0;
+            }
+
+            .section-title h2 {
+                font-size: 32px;
+            }
+
+            .profile-circle {
+                width: 270px;
+                height: 270px;
+            }
+
+            .profile-initial {
+                width: 175px;
+                height: 175px;
+                font-size: 65px;
+            }
+
+            .timeline::before {
+                left: 15px;
+            }
+
+            .timeline-item,
+            .timeline-item:nth-child(even) {
+                width: 100%;
+                left: 0;
+                padding-left: 50px;
+                padding-right: 0;
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(odd) .timeline-dot,
+            .timeline-item:nth-child(even) .timeline-dot {
+                left: 5px;
+                right: auto;
+            }
+
+            .achievement-grid,
+            .hobby-grid,
+            .info-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-box {
+                padding: 35px 20px;
+            }
+        }
+
+        @media (max-width: 450px) {
+
+            .hero h1 {
+                font-size: 42px;
+            }
+
+            .hero h2 {
+                font-size: 20px;
+            }
+
+            section {
+                padding: 75px 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         NAVIGATION
+    ========================== -->
+
+    <header>
+        <div class="container">
+            <nav>
+
+                <a href="#home" class="logo">
+                    SK<span>.</span>
+                </a>
+
+                <div class="menu-btn" id="menuBtn">
+                    ☰
+                </div>
+
+                <ul class="nav-links" id="navLinks">
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#education">Education</a></li>
+                    <li><a href="#achievements">Achievements</a></li>
+                    <li><a href="#hobbies">Hobbies</a></li>
+                    <li><a href="#certificate">Certificate</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+
+            </nav>
+        </div>
+    </header>
+
+
+    <!-- =========================
+         HERO SECTION
+    ========================== -->
+
+    <section id="home">
+
+        <div class="shape one"></div>
+        <div class="shape two"></div>
+        <div class="shape three"></div>
+
+        <div class="container hero">
+
+            <div class="hero-text">
+
+                <span class="hello">
+                    👋 Hello, I'm
+                </span>
+
+                <h1>
+                    Shradha <span>Kakade</span>
+                </h1>
+
+                <h2>
+                    BCA Student &nbsp;|&nbsp; Creative Learner
+                </h2>
+
+                <p>
+                    I am a first-year BCA student passionate about learning,
+                    creativity and exploring new opportunities. I enjoy
+                    combining my academic knowledge with my interests in
+                    sports, dancing, singing and creative activities.
+                </p>
+
+                <div class="buttons">
+                    <a href="#about" class="btn btn-primary">
+                        Explore My Portfolio
+                    </a>
+
+                    <a href="#contact" class="btn btn-outline">
+                        Get In Touch
+                    </a>
+                </div>
+
+            </div>
+
+
+            <div class="hero-image">
+
+                <div class="profile-circle">
+
+                    <div class="profile-initial">
+                        SK
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- =========================
+         ABOUT SECTION
+    ========================== -->
+
+    <section id="about">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <span>About Me</span>
+                <h2>Who I Am</h2>
+            </div>
+
+            <div class="about-grid">
+
+                <div class="about-card reveal">
+
+                    <h3>My Introduction</h3>
+
+                    <p>
+                        Hello! I am <strong>Shradha Kakade</strong>, currently
+                        pursuing my Bachelor of Computer Applications (BCA).
+                        I am a first-year student with a strong interest in
+                        learning new technologies and developing my skills.
+                    </p>
+
+                    <br>
+
+                    <p>
+                        Apart from academics, I love participating in
+                        extracurricular activities. I have achieved first
+                        place in a poster presentation on
+                        <strong>World Ozone Day</strong> and secured
+                        second place in <strong>Kho-Kho</strong>.
+                    </p>
+
+                </div>
+
+
+                <div class="info-grid reveal">
+
+                    <div class="info-box">
+                        <div class="icon">🎓</div>
+                        <h4>Education</h4>
+                        <p>BCA – 1st Year</p>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon">💻</div>
+                        <h4>Course</h4>
+                        <p>CCC++ Certified Course</p>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon">🏆</div>
+                        <h4>Achievement</h4>
+                        <p>1st Place – Poster Presentation</p>
+                    </div>
+
+                    <div class="info-box">
+                        <div class="icon">🏃‍♀️</div>
+                        <h4>Sports</h4>
+                        <p>2nd Place – Kho-Kho</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         EDUCATION
+    ========================== -->
+
+    <section id="education">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <span>My Journey</span>
+                <h2>Education</h2>
+            </div>
+
+            <div class="timeline">
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>BCA – First Year</h3>
+
+                        <div class="year">
+                            Currently Pursuing
+                        </div>
+
+                        <p>
+                            SKE BCA College, Chandgad
+                            <br>
+                            BCA – Semester 1
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>12th Standard</h3>
+
+                        <div class="year">
+                            Higher Secondary Education
+                        </div>
+
+                        <p>
+                            Dhananjay Junior College,
+                            Naganwadi
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="timeline-item reveal">
+
+                    <div class="timeline-dot"></div>
+
+                    <div class="timeline-content">
+
+                        <h3>10th Standard</h3>
+
+                        <div class="year">
+                            Secondary Education
+                        </div>
+
+                        <p>
+                            Dhananjay Vidhyalay,
+                            Naganwadi
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         ACHIEVEMENTS
+    ========================== -->
+
+    <section id="achievements">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <span>My Success</span>
+                <h2>Achievements</h2>
+            </div>
+
+            <div class="achievement-grid">
+
+                <div class="achievement-card reveal">
+
+                    <div class="achievement-icon">
+                        🥇
+                    </div>
+
+                    <h3>1st Place</h3>
+
+                    <p>
+                        Secured first place in a poster presentation
+                        on the topic <strong>World Ozone Day</strong>.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-card reveal">
+
+                    <div class="achievement-icon">
+                        🥈
+                    </div>
+
+                    <h3>2nd Place</h3>
+
+                    <p>
+                        Secured second place in
+                        <strong>Kho-Kho</strong>.
+                    </p>
+
+                </div>
+
+
+                <div class="achievement-card reveal">
+
+                    <div class="achievement-icon">
+                        💻
+                    </div>
+
+                    <h3>Certified Course</h3>
+
+                    <p>
+                        Successfully completed a
+                        <strong>CCC++ certified course</strong>.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         HOBBIES
+    ========================== -->
+
+    <section id="hobbies">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <span>Beyond Academics</span>
+                <h2>My Hobbies</h2>
+            </div>
+
+            <div class="hobby-grid">
+
+                <div class="hobby-card reveal">
+
+                    <div class="hobby-icon">
+                        🏃‍♀️
+                    </div>
+
+                    <h3>Kho-Kho</h3>
+
+                    <p>
+                        I enjoy playing Kho-Kho and
+                        participating in sports activities.
+                    </p>
+
+                </div>
+
+
+                <div class="hobby-card reveal">
+
+                    <div class="hobby-icon">
+                        💃
+                    </div>
+
+                    <h3>Dancing</h3>
+
+                    <p>
+                        Dancing is one of my favorite ways
+                        to express creativity and energy.
+                    </p>
+
+                </div>
+
+
+                <div class="hobby-card reveal">
+
+                    <div class="hobby-icon">
+                        🎤
+                    </div>
+
+                    <h3>Singing</h3>
+
+                    <p>
+                        I enjoy singing and exploring
+                        music in my free time.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CERTIFICATE
+    ========================== -->
+
+    <section id="certificate">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <span>Certification</span>
+                <h2>My Certification</h2>
+            </div>
+
+            <div class="certificate reveal">
+
+                <div class="cert-icon">
+                    🏅
+                </div>
+
+                <h3>CCC++ Certified Course</h3>
+
+                <p>
+                    I have successfully completed a certified
+                    CCC++ course, adding programming knowledge
+                    and technical skills to my academic journey.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         CONTACT
+    ========================== -->
+
+    <section id="contact">
+
+        <div class="container">
+
+            <div class="section-title reveal">
+                <span>Let's Connect</span>
+                <h2>Contact Me</h2>
+            </div>
+
+            <div class="contact-box reveal">
+
+                <h3>Thank You for Visiting! 💙</h3>
+
+                <p>
+                    I am always interested in learning new things,
+                    meeting new people and exploring opportunities
+                    to grow my skills.
+                </p>
+
+                <div class="contact-items">
+
+                    <div class="contact-item">
+                        👩‍🎓 Shradha Kakade
+                    </div>
+
+                    <div class="contact-item">
+                        💻 BCA Student
+                    </div>
+
+                    <div class="contact-item">
+                        📍 Chandgad
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =========================
+         FOOTER
+    ========================== -->
+
+    <footer>
+
+        <p>
+            © 2026 <span>Shradha Kakade</span>.
+            All Rights Reserved.
+        </p>
+
+        <p style="margin-top: 5px; font-size: 13px;">
+            Designed with ❤️ using HTML, CSS & JavaScript
+        </p>
+
+    </footer>
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        // Mobile menu
+        const menuBtn = document.getElementById("menuBtn");
+        const navLinks = document.getElementById("navLinks");
+
+        menuBtn.addEventListener("click", () => {
+            navLinks.classList.toggle("active");
+        });
+
+
+        // Close mobile menu when clicking a link
+        document.querySelectorAll(".nav-links a").forEach(link => {
+
+            link.addEventListener("click", () => {
+                navLinks.classList.remove("active");
+            });
+
+        });
+
+
+        // Scroll reveal animation
+        const revealElements = document.querySelectorAll(".reveal");
+
+        const revealOnScroll = () => {
+
+            const windowHeight = window.innerHeight;
+
+            revealElements.forEach(element => {
+
+                const elementTop =
+                    element.getBoundingClientRect().top;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add("active");
+                }
+
+            });
+
+        };
+
+        window.addEventListener("scroll", revealOnScroll);
+
+        // Run once on page load
+        revealOnScroll();
+
+
+        // Change navbar shadow while scrolling
+        const header = document.querySelector("header");
+
+        window.addEventListener("scroll", () => {
+
+            if (window.scrollY > 50) {
+                header.style.boxShadow =
+                    "0 5px 25px rgba(0,0,0,0.10)";
+            } else {
+                header.style.boxShadow =
+                    "0 3px 20px rgba(0,0,0,0.05)";
+            }
+
+        });
+
+    </script>
+
+</body>
+</html>
